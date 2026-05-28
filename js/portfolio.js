@@ -111,8 +111,8 @@
       const copied = await copyEmail();
       const action = link.dataset.emailAction;
       const hint =
-        action === "cv"
-          ? "Opening email to request your CV…"
+        action === "discussion"
+          ? "Opening email for a discussion…"
           : "Opening email to contact you…";
       showToast(copied ? `Email copied: ${EMAIL}. ${hint}` : `${hint} (${EMAIL})`);
     });
