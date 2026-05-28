@@ -5,10 +5,10 @@
   const roleEl = document.getElementById("typed-role");
 
   const roles = [
-    "Civic Tech Innovator @ UNDP",
     "Data Scientist",
     "Data Analyst",
     "ML Engineer",
+    "AI & ML Researcher",
   ];
 
   let roleIndex = 0;
