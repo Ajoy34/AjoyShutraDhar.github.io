@@ -6,9 +6,8 @@
 
   const roles = [
     "Data Scientist",
-    "Data Analyst",
-    "ML Engineer",
     "AI & ML Researcher",
+    "Civic tech innovator @ UNDP"
   ];
 
   let roleIndex = 0;
@@ -86,4 +85,36 @@
   );
 
   document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+  const EMAIL = "ajoyshutradhar53@gmail.com";
+  const toast = document.getElementById("toast");
+
+  function showToast(message) {
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add("show");
+    window.clearTimeout(showToast._timer);
+    showToast._timer = window.setTimeout(() => toast.classList.remove("show"), 4500);
+  }
+
+  async function copyEmail() {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  document.querySelectorAll(".email-link").forEach((link) => {
+    link.addEventListener("click", async () => {
+      const copied = await copyEmail();
+      const action = link.dataset.emailAction;
+      const hint =
+        action === "cv"
+          ? "Opening email to request your CV…"
+          : "Opening email to contact you…";
+      showToast(copied ? `Email copied: ${EMAIL}. ${hint}` : `${hint} (${EMAIL})`);
+    });
+  });
 })();

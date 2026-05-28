@@ -713,6 +713,37 @@ img {
   font-weight: 600;
 }
 
+/* Email toast */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(120%);
+  z-index: 2000;
+  max-width: min(92vw, 420px);
+  padding: 0.85rem 1.15rem;
+  border-radius: 12px;
+  background: #1e293b;
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  color: #f8fafc;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.email-link {
+  cursor: pointer;
+}
+
 /* Footer */
 .footer {
   padding: 2rem 0;
