@@ -1,14 +1,19 @@
 :root {
-  --bg: #0a0e17;
-  --bg-elevated: #111827;
-  --bg-card: rgba(17, 24, 39, 0.72);
-  --border: rgba(148, 163, 184, 0.12);
-  --text: #f1f5f9;
-  --text-muted: #94a3b8;
-  --accent: #22d3ee;
-  --accent-2: #818cf8;
-  --accent-glow: rgba(34, 211, 238, 0.35);
-  --gradient: linear-gradient(135deg, #22d3ee 0%, #818cf8 50%, #c084fc 100%);
+  --bg: #f4f7fb;
+  --bg-alt: #eef2f7;
+  --bg-elevated: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --border: rgba(15, 23, 42, 0.1);
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --accent: #0891b2;
+  --accent-hover: #0e7490;
+  --accent-2: #4f46e5;
+  --accent-glow: rgba(8, 145, 178, 0.22);
+  --accent-soft: rgba(8, 145, 178, 0.1);
+  --gradient: linear-gradient(135deg, #0891b2 0%, #4f46e5 55%, #7c3aed 100%);
+  --shadow: 0 4px 24px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 16px 48px rgba(15, 23, 42, 0.1);
   --radius: 16px;
   --nav-h: 72px;
   --font: "DM Sans", system-ui, sans-serif;
@@ -41,9 +46,9 @@ body::before {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 50% at 20% -10%, rgba(34, 211, 238, 0.12), transparent),
-    radial-gradient(ellipse 60% 40% at 90% 20%, rgba(129, 140, 248, 0.1), transparent),
-    radial-gradient(ellipse 50% 30% at 50% 100%, rgba(192, 132, 252, 0.06), transparent);
+    radial-gradient(ellipse 80% 50% at 15% -5%, rgba(8, 145, 178, 0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 95% 15%, rgba(79, 70, 229, 0.07), transparent),
+    radial-gradient(ellipse 50% 30% at 50% 100%, rgba(124, 58, 237, 0.05), transparent);
   pointer-events: none;
   z-index: -1;
 }
@@ -55,7 +60,7 @@ a {
 }
 
 a:hover {
-  color: #67e8f9;
+  color: var(--accent-hover);
 }
 
 img {
@@ -82,9 +87,10 @@ img {
 }
 
 .nav.scrolled {
-  background: rgba(10, 14, 23, 0.85);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 .nav__inner {
@@ -254,14 +260,15 @@ img {
 
 .btn--primary {
   background: var(--gradient);
-  color: #0a0e17;
-  box-shadow: 0 8px 32px var(--accent-glow);
+  color: #ffffff;
+  box-shadow: 0 8px 24px var(--accent-glow);
 }
 
 .btn--outline {
-  background: transparent;
+  background: var(--bg-elevated);
   color: var(--text);
   border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 .btn--outline:hover {
@@ -298,7 +305,7 @@ img {
 .social-btn:hover {
   border-color: var(--accent);
   color: var(--accent);
-  background: rgba(34, 211, 238, 0.08);
+  background: var(--accent-soft);
   transform: translateY(-2px);
 }
 
@@ -328,8 +335,8 @@ img {
   display: block;
   border-radius: 20px;
   border: 1px solid var(--border);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-  background: #000;
+  box-shadow: var(--shadow-lg);
+  background: #0f172a;
 }
 
 .hero__metrics {
@@ -346,7 +353,7 @@ img {
   border: 1px solid var(--border);
   border-radius: 12px;
   text-align: center;
-  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
 }
 
 .stat-pill strong {
@@ -370,6 +377,10 @@ img {
 /* Sections */
 .section {
   padding: 5rem 0;
+}
+
+.section:nth-of-type(even) {
+  background: var(--bg-alt);
 }
 
 .section__header {
@@ -404,13 +415,14 @@ img {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.5rem;
-  backdrop-filter: blur(12px);
-  transition: border-color 0.25s, transform 0.25s;
+  box-shadow: var(--shadow);
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 
 .card:hover {
-  border-color: rgba(34, 211, 238, 0.25);
+  border-color: rgba(8, 145, 178, 0.35);
   transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 
 /* About */
@@ -460,8 +472,8 @@ img {
 
 .skill-tag {
   padding: 0.35rem 0.75rem;
-  background: rgba(34, 211, 238, 0.08);
-  border: 1px solid rgba(34, 211, 238, 0.15);
+  background: var(--accent-soft);
+  border: 1px solid rgba(8, 145, 178, 0.2);
   border-radius: 8px;
   font-size: 0.82rem;
   color: var(--text);
@@ -666,6 +678,7 @@ img {
   color: var(--text-muted);
   font-size: 0.85rem;
   border-top: 1px solid var(--border);
+  background: var(--bg-elevated);
 }
 
 /* Reveal animation */
